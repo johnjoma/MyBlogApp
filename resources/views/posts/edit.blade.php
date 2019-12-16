@@ -1,10 +1,9 @@
 @extends('postslayout.postmaster')
-
 @section('content1')
 <!-- Topbar Search -->
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
   <div class="input-group">
-    <p><strong>Create Post</strong></p>
+    <p><strong>Edit Post</strong></p>
   </div>
 </form>
 @endsection
@@ -52,10 +51,10 @@
         <div class="card-body">
            
             
-            {!! Form::open(['action'=>'PostsController@store','method'=>'POST']) !!}
+            {!! Form::open(['action'=>['PostsController@update', $post->id],'method'=>'POST']) !!}
             <div class="form-group">
                 {{Form::label('title','Title')}}
-                {{Form::text('title','',['class'=>'form-control','placeholder'=>'Title'])}}
+                {{Form::text('title',$post->title,['class'=>'form-control','placeholder'=>'Title'])}}
             </div>
 
             <div class="form-group">
@@ -65,9 +64,10 @@
 
             <div class="form-group">
                 {{Form::label('body','Body')}}
-                {!!Form::textarea('body','',['id'=>'article-ckeditor','class'=>'form-control','placeholder'=>'Body Text'])!!}
+                {!!Form::textarea('body',$post->body,['id'=>'article-ckeditor','class'=>'form-control','placeholder'=>'Body Text'])!!}
             </div>
-            {{Form::submit('Create Post',['class'=>'btn btn-primary'])}}
+            {{Form::hidden('_method','PUT')}}
+            {{Form::submit('Update Post',['class'=>'btn btn-primary'])}}
            
             
             {!! Form::close() !!}

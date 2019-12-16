@@ -17,7 +17,7 @@
       <p>This is a template that is great for small businesses. It doesn't have too much fancy 
         flare to it, but it makes a great use of the standard Bootstrap core components.
          Feel free to use this template for any project you want!</p>
-      <a class="btn btn-primary" href="#">Call to Action!</a>
+      <a class="btn btn-primary" href="/posts">Learn more</a>
     </div>
     <!-- /.col-md-4 -->
   </div>
@@ -38,8 +38,8 @@
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body">
-        <h2 class="card-title">{{$post->title}}</h2>
-          <p class="card-text">{!!str_limit($post->body,99,'....')!!}</p>
+        <h2 class="card-title">{{$post->title}} </h2>
+        <p class="card-text">{!!str_limit($post->body,200,'....')!!}</p>
         </div>
         <div class="card-footer">
           <a href='/posts/{{$post->id}}' class="btn btn-primary btn-sm">More Info</a>

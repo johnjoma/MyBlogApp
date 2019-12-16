@@ -16,8 +16,7 @@
 
         <!-- Author -->
         <p class="lead">
-          by
-          <a href="#"></a>
+          By: <small>{{($post->user->name)}}</small>
         </p>
 
         <hr>
@@ -26,7 +25,7 @@
         <p>Posted on:<strong> {{date('F D, Y',strtotime($post->created_at))}}</strong></p>
 
         <hr>
-
+      
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 

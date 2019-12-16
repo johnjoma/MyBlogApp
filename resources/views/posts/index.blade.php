@@ -23,13 +23,19 @@
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
-          <h2 class="card-title">{{$post->title}}</h2>
+          <h2 class="card-title">{{$post->title}}  </h2>
             <p class="card-text">{!!str_limit($post->body,250,'....')!!}</p>
             <a href='/posts/{{$post->id}}' class="btn btn-primary">Read More &rarr;</a>
+            
+            
           </div>
           <div class="card-footer text-muted">
-            Posted on: <strong> {{date('F D, Y',strtotime($post->created_at))}}</strong>
-            <a href="#"></a>
+            Posted on: <strong> {{date('F D, Y',strtotime($post->created_at))}}</strong> 
+              By: <small>{{($post->user->name)}}</small>
+            <hr>
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-primary" style="float:right">Edit</a>
+            
+
           </div>
         </div>
         @endforeach
@@ -125,7 +131,7 @@
               @if(count($posts)>0)
               @foreach($posts as $post)
               @if($post->type == "T")
-            <div class="col-lg-6">
+            <div class="col-lg-18">
               <ul class="list-unstyled mb-0">
                 <li>
                   <a href='/posts/{{$post->id}}'>{{$post->title}}</a>

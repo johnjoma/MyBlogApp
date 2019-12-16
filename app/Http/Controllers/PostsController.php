@@ -7,7 +7,13 @@ use App\Post;
 use DB;
 
 class PostsController extends Controller
+
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -54,6 +60,7 @@ class PostsController extends Controller
         $post->title=$request->input('title');
         $post->type=$request->input('type');
         $post->body=$request->input('body');
+        $post->user_id =auth()->user()->id;
         $post->save();
         return redirect('/posts')->with('success', 'post created');
     }
@@ -78,7 +85,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post= Post::find($id);
+        return view('posts.edit')->with('post',$post);
     }
 
     /**
@@ -90,7 +98,19 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'type'=>'required',
+            'body'=>'required'
+
+        ]);
+        $post=Post::find($id);
+        $post->title=$request->input('title');
+        $post->type=$request->input('type');
+        $post->body=$request->input('body');
+        
+        $post->save();
+        return redirect('/posts')->with('success', 'post update!');
     }
 
     /**
@@ -101,6 +121,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post= Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Post Deleted!');
+
     }
 }
