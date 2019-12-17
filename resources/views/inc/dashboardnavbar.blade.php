@@ -30,6 +30,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    @if(!Auth::guest())
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -59,6 +60,9 @@
                             </div>
                         </li>
                     @endguest
+                    @else
+                    page not found!
+                    @endif
                 </ul>
             </div>
         </div>

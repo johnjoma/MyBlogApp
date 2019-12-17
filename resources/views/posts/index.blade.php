@@ -27,14 +27,16 @@
             <p class="card-text">{!!str_limit($post->body,250,'....')!!}</p>
             <a href='/posts/{{$post->id}}' class="btn btn-primary">Read More &rarr;</a>
             
-            
           </div>
           <div class="card-footer text-muted">
             Posted on: <strong> {{date('F D, Y',strtotime($post->created_at))}}</strong> 
               By: <small>{{($post->user->name)}}</small>
+              @if(!Auth::guest())
+              @if(Auth::user()->id == $post->user_id)
             <hr>
             <a href="/posts/{{$post->id}}/edit" class="btn btn-primary" style="float:right">Edit</a>
-            
+            @endif
+            @endif
 
           </div>
         </div>
