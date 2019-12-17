@@ -6,57 +6,140 @@
  <!-- Page Content -->
  <div class="container">
 
-  <!-- Heading Row -->
-  <div class="row align-items-center my-5">
-    <div class="col-lg-7">
-      <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
-    </div>
-    <!-- /.col-lg-8 -->
-    <div class="col-lg-5">
-      <h1 class="font-weight-light">Business Name or Tagline</h1>
-      <p>This is a template that is great for small businesses. It doesn't have too much fancy 
-        flare to it, but it makes a great use of the standard Bootstrap core components.
-         Feel free to use this template for any project you want!</p>
-      <a class="btn btn-primary" href="/posts">Learn more</a>
-    </div>
-    <!-- /.col-md-4 -->
-  </div>
-  <!-- /.row -->
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+    <h1 class="display-3">A Warm Welcome!</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+    <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+  </header>
 
-  <!-- Call to Action Well 
-  <div class="card text-white bg-secondary my-5 py-4 text-center">
-    <div class="card-body">
-      <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
-    </div>
-  </div>-->
 
-  <!-- Content Row -->
-  <div class="row">
-    @if(count($posts)>0)
-    @foreach($posts as $post)
-    @if($post->type == "F")
-    <div class="col-md-4 mb-5">
+  <!-- Page Features -->
+  <div class="row text-center">
+
+    <div class="col-lg-3 col-md-6 mb-4">
       <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
         <div class="card-body">
-        <h2 class="card-title">{{$post->title}} </h2>
-        <p class="card-text">{!!str_limit($post->body,200,'....')!!}</p>
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
         </div>
         <div class="card-footer">
-          <a href='/posts/{{$post->id}}' class="btn btn-primary btn-sm">More Info</a>
+          <a href="#" class="btn btn-primary">Find Out More!</a>
         </div>
       </div>
     </div>
-    @endif
-    @endforeach
-    @else
-    <p>No featured post</p>
-    @endif
 
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+  <!---------- Just another page---->
+   <!-- Page Features -->
+   <div class="row text-center">
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+   
   </div>
   <!-- /.row -->
+  <!-- Jumbro box -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
 
 </div>
 <!-- /.container -->
+
 @endsection
  
 

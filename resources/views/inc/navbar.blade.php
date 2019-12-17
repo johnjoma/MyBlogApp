@@ -16,10 +16,13 @@
             <a class="nav-link" href="/posts">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/fashion">Fashion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/travel">Travel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/technology">Technology</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/home">Dashboard</a>

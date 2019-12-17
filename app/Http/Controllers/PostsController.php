@@ -31,6 +31,9 @@ class PostsController extends Controller
         
     }
 
+
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,8 +41,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $posts = DB::table('posts')->count();
-        return view('posts.create')->with('$posts','count');
+        
+        return view('posts.create');
     }
 
     /**

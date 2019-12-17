@@ -14,7 +14,9 @@
 
 Route::get('/','PagesController@index');
 
-Route::get('show','PagesController@show');
+Route::get('technology','PagesController@technology');
+Route::get('travel','PagesController@travel');
+Route::get('fashion','PagesController@fashion');
 
 Route::resource('posts','PostsController');
 Auth::routes();
