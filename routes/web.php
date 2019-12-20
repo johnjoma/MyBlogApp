@@ -19,7 +19,11 @@ Route::get('travel','PagesController@travel');
 Route::get('fashion','PagesController@fashion');
 
 Route::resource('posts','PostsController');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('view', 'HomeController@view')->name('view');
+Route::get('/posts/{slug}', 'PostController@show');
+

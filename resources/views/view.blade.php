@@ -15,8 +15,8 @@
      <!-- Content Row -->
      <div class="row">
     
-                   
-      <!-- Pending Requests Card Example -->
+            
+      <!-- Pending Requests Card Example 
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
           <div class="card-body">
@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
 
     <!-- Content Row -->
@@ -43,7 +43,7 @@
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Blog Set up</h6>
+            <h6 class="m-0 font-weight-bold text-primary">View posts</h6>
             @include('inc.messages')
             <div class="dropdown no-arrow">
              
@@ -58,6 +58,8 @@
                <tr>
                    <th>Id</th>
                    <th>Title</th>
+                   <th>Category</th>
+                   <th>Type</th>
                    <th>Date Posted</th>
                    <th></th>
                    <th></th>
@@ -67,7 +69,10 @@
                  
                   <tr>
                     <td>{{$post->id}}</td>
-                  <td>{{$post->title}}</td>
+                    <td>{{$post->title}}</td>
+                  <td>{{$post->category}}</td>
+                  <td>{{$post->type}}</td>
+                  
                   <td>{{date('F D, Y',strtotime($post->created_at))}}</td>
                   <td><a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a></td>
                   <td>{!!Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST','class'=> 'pull-right'])!!}

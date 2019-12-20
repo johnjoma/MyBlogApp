@@ -1,4 +1,5 @@
 @extends('postslayout.postmaster')
+
 @section('content1')
 <!-- Topbar Search -->
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -56,10 +57,13 @@
                 {{Form::label('title','Title')}}
                 {{Form::text('title',$post->title,['class'=>'form-control','placeholder'=>'Title'])}}
             </div>
-
+            <div class="form-group">
+              {{Form::label('category','Category')}}
+              {{Form::select('category',['Null'=>'Pick category...','FD' => 'Food','FS' => 'Fashion', 'TR' => 'Travel','TECH'=>'Technology'],null,['class'=>'form-control'])}}
+          </div>
             <div class="form-group">
                 {{Form::label('type','Type')}}
-                {{Form::select('type',['P' => 'Post','F' => 'Featured', 'T' => 'Top Stories'],null,['class'=>'form-control'])}}
+                {{Form::select('type',['','P' => 'Post','TP'=>'Top Post','F' => 'Featured', 'T' => 'Top Stories'],null,['class'=>'form-control'])}}
             </div>
 
             <div class="form-group">
@@ -102,4 +106,3 @@
  
 
   @endsection
-

@@ -59,9 +59,19 @@
             </div>
 
             <div class="form-group">
+              {{Form::label('slug','Slug')}}
+              {{Form::text('slug','',['class'=>'form-control','placeholder'=>'Slug'])}}
+          </div>
+
+            <div class="form-group">
                 {{Form::label('type','Type')}}
-                {{Form::select('type',['P' => 'Post','F' => 'Featured', 'T' => 'Top Stories'],null,['class'=>'form-control'])}}
+                {{Form::select('type',['','P' => 'Post','TP'=>'Top Post','F' => 'Featured', 'T' => 'Top Stories'],null,['class'=>'form-control'])}}
             </div>
+
+            <div class="form-group">
+              {{Form::label('category','Category')}}
+              {{Form::select('category',['','Null'=>'Pick category...','FS' => 'Fashion', 'TR' => 'Travel','TECH'=>'Technology'],null,['class'=>'form-control'])}}
+          </div>
 
             <div class="form-group">
                 {{Form::label('body','Body')}}

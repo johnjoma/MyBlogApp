@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Post;
 use DB;
 
 class PostsController extends Controller
 
 {
-    public function __construct()
-    {
-        $this->middleware('auth',['except'=>['index','show']]);
+   // public function __construct()
+   // {
+     //   $this->middleware('auth',['except'=>['index','show']]);
 
         
-    }
+   // }
 
     /**
      * Display a listing of the resource.
@@ -23,12 +25,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //$posts= Post::where('title','post two')->get();
+        //$posts= Post::where('category','FD')->paginate(3);
         //$posts =DB::select('SELECT*FROM posts');
         //$posts=Post::all();
         //$posts= Post::orderBy('title','desc')->take(1)->get();
         //$posts= Post::orderBy('title','desc')->get();
-        $posts= Post::orderBy('id','desc')->paginate(3);
+       $posts= Post::orderBy('id','desc')->paginate(3);
         return view ('posts.index')->with('posts',$posts);
         
     }
@@ -46,7 +48,7 @@ class PostsController extends Controller
         
         return view('posts.create');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -57,13 +59,17 @@ class PostsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
+            'slug' => 'required|min:3|max:255|unique:posts',
             'type'=>'required',
-            'body'=>'required'
+            'category'=>'required',
+            'body'=>'required|min:100|max:3000'
 
         ]);
         $post= new Post;
         $post->title=$request->input('title');
+        $post->slug = Str::slug($request->slug, '-');
         $post->type=$request->input('type');
+        $post->category=$request->input('category');
         $post->body=$request->input('body');
         $post->user_id =auth()->user()->id;
         $post->save();
@@ -76,9 +82,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $post= Post::find($id);
+        //$post= Post::find($slug);
+        $post=Post::where('slug', $slug)->first();
         return view('posts.show')->with('post',$post);
     }
 
@@ -109,12 +116,14 @@ class PostsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
+            'category'=>'required',
             'type'=>'required',
             'body'=>'required'
 
         ]);
         $post=Post::find($id);
         $post->title=$request->input('title');
+        $post->category=$request->input('category');
         $post->type=$request->input('type');
         $post->body=$request->input('body');
         

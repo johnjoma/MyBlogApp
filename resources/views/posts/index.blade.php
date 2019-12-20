@@ -16,16 +16,18 @@
         </h1>
 
         <!-- Blog Post -->
+        
         @if(count($posts)>0)
         @foreach ($posts as $post)
+        
             
        
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
           <h2 class="card-title">{{$post->title}}  </h2>
-            <p class="card-text">{!!str_limit($post->body,250,'....')!!}</p>
-            <a href='/posts/{{$post->id}}' class="btn btn-primary">Read More &rarr;</a>
+            <p class="card-text">{!!str_limit($post->body,250,'....')!!}</p> <br>
+            <a href='/posts/{{$post->slug}}' class="btn btn-primary">Read More &rarr;</a>
             
           </div>
           <div class="card-footer text-muted">
@@ -40,12 +42,13 @@
 
           </div>
         </div>
+        
         @endforeach
         {{$posts->links()}}
         @else
         <p>No post found</p>
         @endif
-
+        
         <!-- Blog Post 
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
@@ -99,29 +102,17 @@
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#">Fashion</a>
+                    <a href="/fashion">Fashion</a>
                   </li>
                   <li>
-                    <a href="#">Nature</a>
+                    <a href="/travel">Travel</a>
                   </li>
                   <li>
-                    <a href="#">Technology</a>
+                    <a href="/technology">Technology</a>
                   </li>
                 </ul>
               </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Lifestyle</a>
-                  </li>
-                  <li>
-                    <a href="#">Travel</a>
-                  </li>
-                  <li>
-                    <a href="#">Health</a>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -136,7 +127,7 @@
             <div class="col-lg-18">
               <ul class="list-unstyled mb-0">
                 <li>
-                  <a href='/posts/{{$post->id}}'>{{$post->title}}</a>
+                  <a href='/posts/{{$post->slug}}'>{{$post->title}}</a>
                 </li>
                 
               </ul>
@@ -149,7 +140,7 @@
           </div>
         </div>
 
-        <!-- Side Widget -->
+        <!-- Side Widget 
         <div class="card my-4">
           <h5 class="card-header">Top post</h5>
           <div class="card-body">
@@ -167,7 +158,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div>-->
 
 
       </div>

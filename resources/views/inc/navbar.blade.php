@@ -24,9 +24,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/technology">Technology</a>
           </li>
+          @if(!Auth::guest())
           <li class="nav-item">
             <a class="nav-link" href="/home">Dashboard</a>
           </li>
+          @endif
         </ul>
       </div>
     </div>
